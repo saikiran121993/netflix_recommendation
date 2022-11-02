@@ -126,8 +126,8 @@ indices = pd.Series(df.index, index=df["title"])
 genres_titles = df[['title','production_countries', 'genres']]
 genres_titles["genres"]=genres_titles["genres"].apply(repair_array_bound_categories)
 genres_titles = genres_titles.explode('genres').drop_duplicates()
-# genres_titles["production_countries"]=genres_titles["production_countries"].apply(repair_array_bound_categories)
-# genres_titles = genres_titles.explode('production_countries').drop_duplicates()
+genres_titles["production_countries"]=genres_titles["production_countries"].apply(repair_array_bound_categories)
+genres_titles = genres_titles.explode('production_countries').drop_duplicates()
 
 movie_list = genres_titles[(genres_titles.genres.isin(selected_genres)) 
                         #    & (genres_titles.production_countries.isin(production_countries))
