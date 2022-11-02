@@ -42,7 +42,7 @@ cosine_sim = pd.read_parquet('cosine_sim.parquet').to_numpy()
 
 
 
-def get_recommendations(title, cosine_sim, top_k=5, years=[2020]):
+def get_recommendations(title, cosine_sim, top_k=5, years=range(1980, 2022)):
     
     idx = indices[title]
 
@@ -55,8 +55,8 @@ def get_recommendations(title, cosine_sim, top_k=5, years=[2020]):
         .sort_values(["imdb_votes", "imdb_score"], ascending=False)\
         .reset_index(drop=True)\
         .drop_duplicates(subset='title')
-    recommendations = recommendations[recommendations['release_year'].isin(years)].iloc[0:5].reset_index(drop=True)
-    
+    # recommendations = recommendations[recommendations['release_year'].isin(years)]
+    recommendations = recommendations.iloc[0:4].reset_index(drop=True)
     recommended_movies = []
     recommended_movies_posters = []
     for x in recommendations.title:
