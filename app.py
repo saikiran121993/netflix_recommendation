@@ -89,35 +89,35 @@ if st.sidebar.button('Show Recommendation'):
     
     recommendations, names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5)
     
-    col1, col2 = st.columns(1,2)
+    col1, col2 = st.columns([1,2])
     with col1:
         st.image(posters[0], width=150)
     with col2:
         st.header(names[0])
         st.markdown(recommendations.iloc[0]['description'])
         
-    col1, col2 = st.columns(1,2)
+    col1, col2 = st.columns([1,2])
     with col1:
         st.image(posters[1], width=150)
     with col2:
         st.header(names[1])
         st.markdown(recommendations.iloc[1]['description'])
         
-    col1, col2 = st.columns(1,2)
+    col1, col2 = st.columns([1,2])
     with col1:
         st.image(posters[2], width=150)
     with col2:
         st.header(names[2])
         st.markdown(recommendations.iloc[2]['description'])
     
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1,2])
     with col1:
         st.image(posters[3], width=150)
     with col2:
         st.header(names[3])
         st.markdown(recommendations.iloc[3]['description'])
     
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1,2])
     with col1:
         st.image(posters[4], width=150)
     with col2:
