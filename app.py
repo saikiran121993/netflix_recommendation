@@ -56,7 +56,7 @@ def get_recommendations(title, cosine_sim, top_k=5, years=range(1980, 2022)):
         .reset_index(drop=True)\
         .drop_duplicates(subset='title')
     # recommendations = recommendations[recommendations['release_year'].isin(years)]
-    recommendations = recommendations.iloc[0:4].reset_index(drop=True)
+    recommendations = recommendations.iloc[0:5].reset_index(drop=True)
     recommended_movies = []
     recommended_movies_posters = []
     for x in recommendations.title:
@@ -146,75 +146,76 @@ selected_movie = st.sidebar.selectbox(
 if st.sidebar.button('Show Recommendation'):
     
     recommendations, names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5, years=release_years)
-    
-    col1, col2 = st.columns([1,2])
-    with col1:
-        st.write(' ')
-        st.write(' ')
-        st.image(posters[0], width=150)
-    with col2:
-        st.header(names[0])
-        st.markdown(recommendations.iloc[0]['description'])
-        st.markdown("IMDB rating: " + str(recommendations.iloc[0]['imdb_score']))
-        st.markdown("Release Year: "+ str(recommendations.iloc[0]['release_year']))
-        st.markdown("Duration: " + str(recommendations.iloc[0]['runtime']))
-        st.markdown("Genres: " + str(recommendations.iloc[0]['genres']))
+    try:
+        col1, col2 = st.columns([1,2])
+        with col1:
+            st.write(' ')
+            st.write(' ')
+            st.image(posters[0], width=150)
+        with col2:
+            st.header(names[0])
+            st.markdown(recommendations.iloc[0]['description'])
+            st.markdown("IMDB rating: " + str(recommendations.iloc[0]['imdb_score']))
+            st.markdown("Release Year: "+ str(recommendations.iloc[0]['release_year']))
+            st.markdown("Duration: " + str(recommendations.iloc[0]['runtime']))
+            st.markdown("Genres: " + str(recommendations.iloc[0]['genres']))
 
 
+            
+        col1, col2 = st.columns([1,2])
+        with col1:
+            st.write(' ')
+            st.write(' ')
+            st.image(posters[1], width=150)
+        with col2:
+            st.header(names[1])
+            st.markdown(recommendations.iloc[1]['description'])
+            st.markdown("IMDB rating: " + str(recommendations.iloc[1]['imdb_score']))
+            st.markdown("Release Year: "+ str(recommendations.iloc[1]['release_year']))
+            st.markdown("Duration: " + str(recommendations.iloc[1]['runtime']))
+            st.markdown("Genres: " + str(recommendations.iloc[1]['genres']))
+
+            
+        col1, col2 = st.columns([1,2])
+        with col1:
+            st.write(' ')
+            st.write(' ')
+            st.image(posters[2], width=150)
+        with col2:
+            st.header(names[2])
+            st.markdown(recommendations.iloc[2]['description'])
+            st.markdown("IMDB rating: " + str(recommendations.iloc[2]['imdb_score']))
+            st.markdown("Release Year: "+ str(recommendations.iloc[2]['release_year']))
+            st.markdown("Duration: " + str(recommendations.iloc[2]['runtime']))
+            st.markdown("Genres: " + str(recommendations.iloc[2]['genres']))
         
-    col1, col2 = st.columns([1,2])
-    with col1:
-        st.write(' ')
-        st.write(' ')
-        st.image(posters[1], width=150)
-    with col2:
-        st.header(names[1])
-        st.markdown(recommendations.iloc[1]['description'])
-        st.markdown("IMDB rating: " + str(recommendations.iloc[1]['imdb_score']))
-        st.markdown("Release Year: "+ str(recommendations.iloc[1]['release_year']))
-        st.markdown("Duration: " + str(recommendations.iloc[1]['runtime']))
-        st.markdown("Genres: " + str(recommendations.iloc[1]['genres']))
-
+        col1, col2 = st.columns([1,2])
+        with col1:
+            st.write(' ')
+            st.write(' ')
+            st.image(posters[3], width=150)
+        with col2:
+            st.header(names[3])
+            st.markdown(recommendations.iloc[3]['description'])
+            st.markdown("IMDB rating: " + str(recommendations.iloc[3]['imdb_score']))
+            st.markdown("Release Year: "+ str(recommendations.iloc[3]['release_year']))
+            st.markdown("Duration: " + str(recommendations.iloc[3]['runtime']))
+            st.markdown("Genres: " + str(recommendations.iloc[3]['genres']))
         
-    col1, col2 = st.columns([1,2])
-    with col1:
-        st.write(' ')
-        st.write(' ')
-        st.image(posters[2], width=150)
-    with col2:
-        st.header(names[2])
-        st.markdown(recommendations.iloc[2]['description'])
-        st.markdown("IMDB rating: " + str(recommendations.iloc[2]['imdb_score']))
-        st.markdown("Release Year: "+ str(recommendations.iloc[2]['release_year']))
-        st.markdown("Duration: " + str(recommendations.iloc[2]['runtime']))
-        st.markdown("Genres: " + str(recommendations.iloc[2]['genres']))
-    
-    col1, col2 = st.columns([1,2])
-    with col1:
-        st.write(' ')
-        st.write(' ')
-        st.image(posters[3], width=150)
-    with col2:
-        st.header(names[3])
-        st.markdown(recommendations.iloc[3]['description'])
-        st.markdown("IMDB rating: " + str(recommendations.iloc[3]['imdb_score']))
-        st.markdown("Release Year: "+ str(recommendations.iloc[3]['release_year']))
-        st.markdown("Duration: " + str(recommendations.iloc[3]['runtime']))
-        st.markdown("Genres: " + str(recommendations.iloc[3]['genres']))
-    
-    col1, col2 = st.columns([1,2])
-    with col1:
-        st.write(' ')
-        st.write(' ')
-        st.image(posters[4], width=150)
-    with col2:
-        st.header(names[4])
-        st.markdown(recommendations.iloc[4]['description'])
-        st.markdown("IMDB rating: " + str(recommendations.iloc[4]['imdb_score']))
-        st.markdown("Release Year: "+ str(recommendations.iloc[4]['release_year']))
-        st.markdown("Duration: " + str(recommendations.iloc[4]['runtime']))
-        st.markdown("Genres: " + str(recommendations.iloc[4]['genres']))
-    
+        col1, col2 = st.columns([1,2])
+        with col1:
+            st.write(' ')
+            st.write(' ')
+            st.image(posters[4], width=150)
+        with col2:
+            st.header(names[4])
+            st.markdown(recommendations.iloc[4]['description'])
+            st.markdown("IMDB rating: " + str(recommendations.iloc[4]['imdb_score']))
+            st.markdown("Release Year: "+ str(recommendations.iloc[4]['release_year']))
+            st.markdown("Duration: " + str(recommendations.iloc[4]['runtime']))
+            st.markdown("Genres: " + str(recommendations.iloc[4]['genres']))
+    except:
+        continue
 
 
 
