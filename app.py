@@ -93,7 +93,7 @@ if st.sidebar.button('Show Recommendation'):
     with col2:
         st.header(names[0])
         st.markdown(recommendations.iloc[0]['description'])
-        st.markdown("IMDB rating: " + str(recommendations.iloc[0]['description']))
+        st.markdown("IMDB rating: " + str(recommendations.iloc[0]['imdb_score']))
         st.markdown("Release Year: "+ str(recommendations.iloc[0]['release_year']))
         st.markdown("Duration: " + str(recommendations.iloc[0]['runtime']))
 
@@ -104,6 +104,9 @@ if st.sidebar.button('Show Recommendation'):
     with col2:
         st.header(names[1])
         st.markdown(recommendations.iloc[1]['description'])
+        st.markdown("IMDB rating: " + str(recommendations.iloc[1]['imdb_score']))
+        st.markdown("Release Year: "+ str(recommendations.iloc[1]['release_year']))
+        st.markdown("Duration: " + str(recommendations.iloc[1]['runtime']))
         
     col1, col2 = st.columns([1,2])
     with col1:
@@ -111,6 +114,9 @@ if st.sidebar.button('Show Recommendation'):
     with col2:
         st.header(names[2])
         st.markdown(recommendations.iloc[2]['description'])
+        st.markdown("IMDB rating: " + str(recommendations.iloc[2]['imdb_score']))
+        st.markdown("Release Year: "+ str(recommendations.iloc[2]['release_year']))
+        st.markdown("Duration: " + str(recommendations.iloc[2]['runtime']))
     
     col1, col2 = st.columns([1,2])
     with col1:
@@ -118,6 +124,9 @@ if st.sidebar.button('Show Recommendation'):
     with col2:
         st.header(names[3])
         st.markdown(recommendations.iloc[3]['description'])
+        st.markdown("IMDB rating: " + str(recommendations.iloc[3]['imdb_score']))
+        st.markdown("Release Year: "+ str(recommendations.iloc[3]['release_year']))
+        st.markdown("Duration: " + str(recommendations.iloc[3]['runtime']))
     
     col1, col2 = st.columns([1,2])
     with col1:
@@ -125,6 +134,9 @@ if st.sidebar.button('Show Recommendation'):
     with col2:
         st.header(names[4])
         st.markdown(recommendations.iloc[4]['description'])
+        st.markdown("IMDB rating: " + str(recommendations.iloc[4]['imdb_score']))
+        st.markdown("Release Year: "+ str(recommendations.iloc[4]['release_year']))
+        st.markdown("Duration: " + str(recommendations.iloc[4]['runtime']))
     
 st.write('  '
          )
