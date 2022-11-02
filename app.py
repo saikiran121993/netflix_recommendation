@@ -42,7 +42,7 @@ cosine_sim = pd.read_parquet('cosine_sim.parquet').to_numpy()
 
 
 
-def get_recommendations(title, cosine_sim, top_k=5):
+def get_recommendations(title, cosine_sim, top_k=5, years=[2020]):
     
     idx = indices[title]
 
@@ -51,11 +51,10 @@ def get_recommendations(title, cosine_sim, top_k=5):
     sim_scores = sim_scores[0:20]
     movie_indices = [i[0] for i in sim_scores if i[0] != idx]
 
-    recommendations  = df.iloc[movie_indices] \
+    recommendations  = df.iloc[(movie_indices) & (df['release_year'].isin(years))] \
         .sort_values(["imdb_votes", "imdb_score"], ascending=False)\
         .reset_index(drop=True)\
-        .head(top_k)
-  
+        .head(top_k).drop_duplicates(subset='title')
     recommended_movies = []
     recommended_movies_posters = []
     for x in recommendations.title:
@@ -119,6 +118,10 @@ production_countries = st.sidebar.multiselect(
        'LK', 'AO', 'GT', 'MZ', 'AF', 'NA', 'FO']
 )
 
+release_years = st.sidebar.multiselect(
+    "Select release years from the dropdown",
+    df.release_year.unique()
+)
 
 
 indices = pd.Series(df.index, index=df["title"])
@@ -130,7 +133,7 @@ genres_titles["production_countries"]=genres_titles["production_countries"].appl
 genres_titles = genres_titles.explode('production_countries').drop_duplicates()
 
 movie_list = genres_titles[(genres_titles.genres.isin(selected_genres)) 
-                        #    & (genres_titles.production_countries.isin(production_countries))
+                           & (genres_titles.production_countries.isin(production_countries))
                            ]['title'].unique()
 
 selected_movie = st.sidebar.selectbox(
@@ -140,7 +143,7 @@ selected_movie = st.sidebar.selectbox(
 
 if st.sidebar.button('Show Recommendation'):
     
-    recommendations, names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5)
+    recommendations, names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5, years=release_years)
     
     col1, col2 = st.columns([1,2])
     with col1:
