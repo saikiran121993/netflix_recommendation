@@ -7,7 +7,7 @@ import numpy  as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import requests
-
+import utils
 
 def fetch_poster(movie_id):
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=020b311fe0559698373a16008dc6a672&language=en-US'.format(movie_id))
@@ -74,8 +74,21 @@ st_lottie(
 )
 
 
+selected_genres = st.sidebar.multiselect(
+    "Type or select a genres from the dropdown",
+    ['crime', 'drama', 'comedy', 'fantasy', 'horror', 'thriller', 'action', 'music', 'romance', 'family', 'western',\
+     'european', 'war', 'animation', 'documentation', 'history', 'scifi', 'sport', 'reality']
+)
+
+
 indices = pd.Series(df.index, index=df["title"])
-movie_list = df['title'].unique()
+
+genres_titles = df[['title', 'genres']]
+genres_titles["genres"]=genres_titles["genres"].apply(utils.repair_array_bound_categories)
+genres_titles = genres_titles.explode('genres').drop_duplicates()
+
+
+movie_list = genres_titles[genres_titles.genres.isin(selected_genres)]['title'].unique()
 
 selected_movie = st.sidebar.selectbox(
     "Type or select a movie from the dropdown",
