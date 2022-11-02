@@ -26,8 +26,7 @@ df = pd.read_parquet('data.parquet')
 cosine_sim = pd.read_parquet('cosine_sim.parquet').to_numpy()
 
 
-indices = pd.Series(df.index, index=df["title"])
-movie_list = df['title'].unique()
+
 
 def get_recommendations(title, cosine_sim, top_k=5):
     
@@ -57,7 +56,6 @@ def get_recommendations(title, cosine_sim, top_k=5):
 
 
 
-movie_list = df['title'].values
 
 
 ####################################################################
@@ -74,9 +72,14 @@ st_lottie(
     loop=True,
     quality="low",height=220
 )
+
+
+indices = pd.Series(df.index, index=df["title"])
+movie_list = df['title'].unique()
+
 selected_movie = st.sidebar.selectbox(
     "Type or select a movie from the dropdown",
-    movie_list
+    movie_list[1:]
 )
 
 if st.sidebar.button('Show Recommendation'):
@@ -98,6 +101,8 @@ if st.sidebar.button('Show Recommendation'):
         st.markdown("IMDB rating: " + str(recommendations.iloc[0]['imdb_score']))
         st.markdown("Release Year: "+ str(recommendations.iloc[0]['release_year']))
         st.markdown("Duration: " + str(recommendations.iloc[0]['runtime']))
+        st.markdown("Genres: " + str(recommendations.iloc[0]['genres']))
+
 
         
     col1, col2 = st.columns([1,2])
@@ -111,6 +116,8 @@ if st.sidebar.button('Show Recommendation'):
         st.markdown("IMDB rating: " + str(recommendations.iloc[1]['imdb_score']))
         st.markdown("Release Year: "+ str(recommendations.iloc[1]['release_year']))
         st.markdown("Duration: " + str(recommendations.iloc[1]['runtime']))
+        st.markdown("Genres: " + str(recommendations.iloc[1]['genres']))
+
         
     col1, col2 = st.columns([1,2])
     with col1:
@@ -123,6 +130,7 @@ if st.sidebar.button('Show Recommendation'):
         st.markdown("IMDB rating: " + str(recommendations.iloc[2]['imdb_score']))
         st.markdown("Release Year: "+ str(recommendations.iloc[2]['release_year']))
         st.markdown("Duration: " + str(recommendations.iloc[2]['runtime']))
+        st.markdown("Genres: " + str(recommendations.iloc[2]['genres']))
     
     col1, col2 = st.columns([1,2])
     with col1:
@@ -135,6 +143,7 @@ if st.sidebar.button('Show Recommendation'):
         st.markdown("IMDB rating: " + str(recommendations.iloc[3]['imdb_score']))
         st.markdown("Release Year: "+ str(recommendations.iloc[3]['release_year']))
         st.markdown("Duration: " + str(recommendations.iloc[3]['runtime']))
+        st.markdown("Genres: " + str(recommendations.iloc[3]['genres']))
     
     col1, col2 = st.columns([1,2])
     with col1:
@@ -147,6 +156,7 @@ if st.sidebar.button('Show Recommendation'):
         st.markdown("IMDB rating: " + str(recommendations.iloc[4]['imdb_score']))
         st.markdown("Release Year: "+ str(recommendations.iloc[4]['release_year']))
         st.markdown("Duration: " + str(recommendations.iloc[4]['runtime']))
+        st.markdown("Genres: " + str(recommendations.iloc[4]['genres']))
     
 
 
