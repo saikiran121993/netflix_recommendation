@@ -96,7 +96,7 @@ selected_genres = st.sidebar.multiselect(
 indices = pd.Series(df.index, index=df["title"])
 
 genres_titles = df[['title', 'genres']]
-genres_titles["genres"]=genres_titles["genres"].apply(u.repair_array_bound_categories)
+genres_titles["genres"]=genres_titles["genres"].apply(repair_array_bound_categories)
 genres_titles = genres_titles.explode('genres').drop_duplicates()
 
 
