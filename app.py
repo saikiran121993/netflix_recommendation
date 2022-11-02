@@ -142,7 +142,7 @@ if st.sidebar.button('Show Recommendation'):
     try:
         col1, col2 = st.columns([1,2])
         with col1:
-            st.write(' ')
+            st.write('1. ')
             st.write(' ')
             st.image(posters[0], width=150)
         with col2:
@@ -157,7 +157,7 @@ if st.sidebar.button('Show Recommendation'):
             
         col1, col2 = st.columns([1,2])
         with col1:
-            st.write(' ')
+            st.write('2. ')
             st.write(' ')
             st.image(posters[1], width=150)
         with col2:
@@ -171,7 +171,7 @@ if st.sidebar.button('Show Recommendation'):
             
         col1, col2 = st.columns([1,2])
         with col1:
-            st.write(' ')
+            st.write('3. ')
             st.write(' ')
             st.image(posters[2], width=150)
         with col2:
@@ -184,7 +184,7 @@ if st.sidebar.button('Show Recommendation'):
         
         col1, col2 = st.columns([1,2])
         with col1:
-            st.write(' ')
+            st.write('4. ')
             st.write(' ')
             st.image(posters[3], width=150)
         with col2:
@@ -197,7 +197,7 @@ if st.sidebar.button('Show Recommendation'):
         
         col1, col2 = st.columns([1,2])
         with col1:
-            st.write(' ')
+            st.write('5. ')
             st.write(' ')
             st.image(posters[4], width=150)
         with col2:
