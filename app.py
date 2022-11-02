@@ -107,15 +107,15 @@ selected_genres = st.sidebar.multiselect(
 
 production_countries = st.sidebar.multiselect(
     "Select countries from the dropdown",
-    ['US', 'GB', 'JP', 'EG', 'DE', 'IN', 'DZ', 'LB', 'FR', 'CA', 'SU',
-       'IT', 'HK', 'AR', 'KW', 'PE', 'BR', 'IE', 'GH', 'BF', 'ES', 'MX',
-       'BE', 'NO', 'PS', 'TR', nan, 'BS', 'CZ', 'AU', 'IS', 'NZ', 'CN',
-       'BG', 'MA', 'UY', 'TW', 'DK', 'KR', 'MY', 'CH', 'CL', 'NG', 'ZA',
-       'SA', 'AT', 'NL', 'SE', 'PH', 'Lebanon', 'TH', 'XX', 'AE', 'HU',
-       'ID', 'RO', 'CD', 'VE', 'IL', 'UA', 'SG', 'IR', 'JO', 'QA', 'LU',
-       'FI', 'SK', 'SY', 'GL', 'PT', 'PK', 'VN', 'PR', 'IQ', 'KH', 'GE',
-       'CU', 'PL', 'KE', 'VA', 'RU', 'RS', 'AL', 'TZ', 'TN', 'ZW', 'PY',
-       'CO', 'NP', 'GR', 'CM', 'BD', 'KG', 'LT', 'CY', 'SN', 'MW', 'MU',
+    ['US', 'GB', 'JP', 'EG', 'DE', 'IN', 'DZ', 'LB', 'FR', 'CA', 'SU', \
+       'IT', 'HK', 'AR', 'KW', 'PE', 'BR', 'IE', 'GH', 'BF', 'ES', 'MX',\
+       'BE', 'NO', 'PS', 'TR', nan, 'BS', 'CZ', 'AU', 'IS', 'NZ', 'CN',\
+       'BG', 'MA', 'UY', 'TW', 'DK', 'KR', 'MY', 'CH', 'CL', 'NG', 'ZA',\
+       'SA', 'AT', 'NL', 'SE', 'PH', 'Lebanon', 'TH', 'XX', 'AE', 'HU',\
+       'ID', 'RO', 'CD', 'VE', 'IL', 'UA', 'SG', 'IR', 'JO', 'QA', 'LU',\
+       'FI', 'SK', 'SY', 'GL', 'PT', 'PK', 'VN', 'PR', 'IQ', 'KH', 'GE',\
+       'CU', 'PL', 'KE', 'VA', 'RU', 'RS', 'AL', 'TZ', 'TN', 'ZW', 'PY',\
+       'CO', 'NP', 'GR', 'CM', 'BD', 'KG', 'LT', 'CY', 'SN', 'MW', 'MU',\
        'LK', 'AO', 'GT', 'MZ', 'AF', 'NA', 'FO']
 )
 
