@@ -54,7 +54,9 @@ def get_recommendations(title, cosine_sim, top_k=5, years=[2020]):
     recommendations  = df.iloc[(movie_indices) & (df['release_year'].isin(years))] \
         .sort_values(["imdb_votes", "imdb_score"], ascending=False)\
         .reset_index(drop=True)\
-        .head(top_k).drop_duplicates(subset='title')
+        .drop_duplicates(subset='title')
+    recommendations = recommendations[recommendations['release_year'].isin(years)].iloc[0:5].reset_index(drop=True)
+    
     recommended_movies = []
     recommended_movies_posters = []
     for x in recommendations.title:
