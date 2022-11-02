@@ -215,7 +215,7 @@ if st.sidebar.button('Show Recommendation'):
             st.markdown("Duration: " + str(recommendations.iloc[4]['runtime']))
             st.markdown("Genres: " + str(recommendations.iloc[4]['genres']))
     except:
-        continue
+        st.write(" ")
 
 
 
