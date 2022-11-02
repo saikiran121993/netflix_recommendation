@@ -39,9 +39,7 @@ def get_recommendations(title, cosine_sim, top_k=5):
     movie_indices = [i[0] for i in sim_scores if i[0] != idx]
 
     recommendations  = df.iloc[movie_indices] \
-        .sort_values(["imdb_votes", "imdb_score"], ascending=False)[
-            ["title", "description", "genres", "imdb_score", 'imdb_id']
-        ] \
+        .sort_values(["imdb_votes", "imdb_score"], ascending=False)\
         .reset_index(drop=True)\
         .head(top_k)
   
@@ -95,6 +93,10 @@ if st.sidebar.button('Show Recommendation'):
     with col2:
         st.header(names[0])
         st.markdown(recommendations.iloc[0]['description'])
+        st.caption("IMDB rating: ",recommendations.iloc[0]['description'])
+        st.caption("Release Year: ",recommendations.iloc[0]['release_year'])
+        st.caption("Duration: ",recommendations.iloc[0]['runtime'])
+
         
     col1, col2 = st.columns([1,2])
     with col1:
