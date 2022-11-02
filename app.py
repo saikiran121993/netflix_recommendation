@@ -53,6 +53,7 @@ def get_recommendations(title, cosine_sim, top_k=5):
             recommended_movies.append(x)
             recommended_movies_posters.append(fetch_poster(movie_id))
         except:
+            recommended_movies_posters.append('Netflix_Symbol_logo.webp')
             continue
     return recommended_movies, recommended_movies_posters
 
