@@ -78,20 +78,6 @@ def get_recommendations(title, cosine_sim, top_k=5):
     )
 
 
-def Table(df):
-    fig=go.Figure(go.Table( columnorder = [1,2,3],
-          columnwidth = [10,28],
-            header=dict(values=[' Title','Description'],
-                        line_color='black',font=dict(color='black',size= 19),height=40,
-                        fill_color='#dd571c',#
-                        align=['left','center']),
-                cells=dict(values=[df.title,df.description],
-                       fill_color='#ffdac4',line_color='grey',
-                           font=dict(color='black', family="Lato", size=16),
-                       align='left')))
-    fig.update_layout(height=500, title ={'text': "Top 10 Movie Recommendations", 'font': {'size': 22}},title_x=0.5
-                     )
-    return st.plotly_chart(fig,use_container_width=True)
 
 movie_list = df['title'].values
 
@@ -119,7 +105,7 @@ if st.button('Show Recommendation'):
     recommended_movie_names = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=10)    
     #list_of_recommended_movie = recommended_movie_names.to_list()
    # st.write(recommended_movie_names[['title', 'description']])
-    Table(recommended_movie_names)
+    st.write(recommended_movie_names)
     
 st.write('  '
          )
