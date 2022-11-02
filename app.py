@@ -12,52 +12,12 @@ def load_lottiefile(filepath: str):
         return json.load(f)
 
 
-from sklearn.feature_extraction.text import TfidfVectorizer
+df = pd.read_parquet('data.parquet')
+cosine_sim = pd.read_parquet('cosine_sim.parquet').to_numpy()
 
-df = pd.read_csv("Titles.csv")
-credits_df = pd.read_csv("Credits.csv")
 
-df["director"] = pd.merge(
-    df, credits_df[credits_df["role"] == "DIRECTOR"], on="id", how="left"
-)["name"].replace(np.nan, None)
-
-df["actors"] = pd.merge(
-    df,
-    pd.merge(df, credits_df[credits_df["role"] == "ACTOR"], on="id", how="left")
-    .groupby("id")["name"]
-    .apply(lambda x: x.tolist() if x is not np.nan else None),
-    on="id",
-    how="left",
-)["name"].apply(lambda x: ["" if i is np.nan else str(i) for i in x])
-
-df["actors"] = df["actors"].replace(np.nan, "")
-
-df["overview"] = (
-    (
-        df["title"].astype(str)
-        + " "
-        + df["description"].astype(str)
-        + " "
-        + df["genres"].apply(lambda x: " ".join(x))
-        + " "
-        + df["director"].astype(str)
-        + " "
-        + df["actors"].apply(lambda x: "" if x is [] else " ".join(x))
-    )
-    .str.lower()
-    .str.replace("\n", " ")
-    .str.replace("—", "")
-)
-
-count = CountVectorizer(stop_words="english", ngram_range=(1, 5))
-count_matrix = count.fit_transform(df["overview"])
-cosine_sim = cosine_similarity(count_matrix, count_matrix)
 indices = pd.Series(df.index, index=df["title"])
-count = CountVectorizer(stop_words="english", ngram_range=(1, 5))
-count_matrix = count.fit_transform(df["overview"])
-cosine_sim = cosine_similarity(count_matrix, count_matrix)
-indices = pd.Series(df.index, index=df["title"])
-
+movie_list = df['title'].unique()
 
 def get_recommendations(title, cosine_sim, top_k=5):
     
