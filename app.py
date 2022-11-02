@@ -108,11 +108,10 @@ if st.button('Show Recommendation'):
             st.text(names[3])
             st.image(posters[3])
             st.text(recommendations.iloc[3]['description'])
-    with c3:
-        with col5:
-            st.text(names[4])
-            st.image(posters[4])
-            st.text(recommendations.iloc[4]['description'])
+    with col5:
+        st.text(names[4])
+        st.image(posters[4])
+        st.text(recommendations.iloc[4]['description'])
     
 st.write('  '
          )
