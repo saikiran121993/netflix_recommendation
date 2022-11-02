@@ -7,3 +7,4 @@ sklearn
 pyarrow
 matplotlib
 seaborn
+movieposters

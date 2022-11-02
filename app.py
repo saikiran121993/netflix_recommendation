@@ -8,6 +8,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import requests
 import ast
+import movieposters as mp
+
 
 def fetch_poster(movie_id):
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=020b311fe0559698373a16008dc6a672&language=en-US'.format(movie_id))
@@ -60,7 +62,8 @@ def get_recommendations(title, cosine_sim, top_k=5):
         try:
             movie_id = df[df['title']==x].imdb_id.unique()[0]
             recommended_movies.append(x)
-            recommended_movies_posters.append(fetch_poster(movie_id))
+            # recommended_movies_posters.append(fetch_poster(movie_id))
+            recommended_movies_posters.append(mp.get_poster(id=movie_id))
         except:
             recommended_movies_posters.append('Netflix_Symbol_logo.webp')
             continue
