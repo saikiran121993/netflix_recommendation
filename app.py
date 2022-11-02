@@ -102,7 +102,7 @@ with c2:
 selected_genres = st.sidebar.multiselect(
     "Type or select a genres from the dropdown",
     ['crime', 'drama', 'comedy', 'fantasy', 'horror', 'thriller', 'action', 'music', 'romance', 'family', 'western',\
-     'european', 'war', 'animation', 'documentation', 'history', 'scifi', 'sport', 'reality']
+     'european', 'war', 'animation', 'documentation', 'history', 'scifi', 'sport', 'reality', None]
 )
 
 
