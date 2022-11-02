@@ -71,7 +71,7 @@ def get_recommendations(title, cosine_sim, top_k=5, years=range(1980, 2022)):
 ##################################################################
 
 
-st.subheader('Netflix content-based recommendation system using the genres and/or descriptions')
+st.code('Netflix content-based recommendation system using the genres and/or descriptions')
 lottie_coding = load_lottiefile("m4.json")
  
 c1, c2 = st.columns([1,3])
