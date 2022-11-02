@@ -55,7 +55,7 @@ def get_recommendations(title, cosine_sim, top_k=5, years=range(1980, 2022)):
         .sort_values(["imdb_votes", "imdb_score"], ascending=False)\
         .reset_index(drop=True)\
         .drop_duplicates(subset='title')
-    # recommendations = recommendations[recommendations['release_year'].isin(years)]
+    recommendations = recommendations[recommendations['release_year'].isin(years)]
     recommendations = recommendations.iloc[0:5].reset_index(drop=True)
     recommended_movies = []
     recommended_movies_posters = []
