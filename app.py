@@ -86,7 +86,7 @@ with c1:
    st.write("")
    st.write("")
    st.write("")
-   st.sidebar.image('netflix_logo.png', width=150)
+   st.image('netflix_logo.png', width=150)
 
 with c2:
     st_lottie(
