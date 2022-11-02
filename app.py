@@ -109,7 +109,7 @@ production_countries = st.sidebar.multiselect(
     "Select countries from the dropdown",
     ['US', 'GB', 'JP', 'EG', 'DE', 'IN', 'DZ', 'LB', 'FR', 'CA', 'SU', \
        'IT', 'HK', 'AR', 'KW', 'PE', 'BR', 'IE', 'GH', 'BF', 'ES', 'MX',\
-       'BE', 'NO', 'PS', 'TR', nan, 'BS', 'CZ', 'AU', 'IS', 'NZ', 'CN',\
+       'BE', 'NO', 'PS', 'TR', 'BS', 'CZ', 'AU', 'IS', 'NZ', 'CN',\
        'BG', 'MA', 'UY', 'TW', 'DK', 'KR', 'MY', 'CH', 'CL', 'NG', 'ZA',\
        'SA', 'AT', 'NL', 'SE', 'PH', 'Lebanon', 'TH', 'XX', 'AE', 'HU',\
        'ID', 'RO', 'CD', 'VE', 'IL', 'UA', 'SG', 'IR', 'JO', 'QA', 'LU',\
