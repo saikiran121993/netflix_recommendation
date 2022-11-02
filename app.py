@@ -93,15 +93,15 @@ if st.sidebar.button('Show Recommendation'):
     with col1:
         st.image(posters[0], width=150)
     with col2:
-        st.text(names[0])
-        st.text(recommendations.iloc[0]['description'])
+        st.header(names[0])
+        st.code(recommendations.iloc[0]['description'])
         
     col1, col2 = st.columns(2)
     with col1:
         st.image(posters[1], width=150)
     with col2:
         st.text(names[1])
-        st.text(recommendations.iloc[1]['description'])
+        st.markdown(recommendations.iloc[1]['description'])
         
     col1, col2 = st.columns(2)
     with col1:
@@ -115,7 +115,7 @@ if st.sidebar.button('Show Recommendation'):
         st.image(posters[3], width=150)
     with col2:
         st.text(names[3])
-        st.text(recommendations.iloc[3]['description'])
+        st.text_box(recommendations.iloc[3]['description'])
     
     col1, col2 = st.columns(2)
     with col1:
