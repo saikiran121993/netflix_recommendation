@@ -108,10 +108,6 @@ selected_movie = st.sidebar.selectbox(
 )
 
 if st.sidebar.button('Show Recommendation'):
-    # recommended_movie_names = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=10)    
-    #list_of_recommended_movie = recommended_movie_names.to_list()
-   # st.write(recommended_movie_names[['title', 'description']])
-    # st.write(recommended_movie_names)
     
     recommendations, names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5)
     
@@ -186,7 +182,7 @@ if st.sidebar.button('Show Recommendation'):
 
 
 
-# EDA = st.checkbox('Show Netflix Exploratory Data Analysis')
-# if EDA :
-#     st.write(
-#         "check out this [link](https://www.kaggle.com/code/rushikeshdane20/in-depth-analysis-of-netflix-with-plotly)")
+EDA = st.checkbox('Show Netflix Exploratory Data Analysis')
+if EDA :
+    st.write(
+        "check out this [link](https://github.com/saikiran121993/netflix_recommendation/blob/main/task.ipynb)")
