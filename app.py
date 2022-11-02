@@ -123,7 +123,7 @@ production_countries = st.sidebar.multiselect(
 
 indices = pd.Series(df.index, index=df["title"])
 
-genres_titles = df[['title', 'genres']]
+genres_titles = df[['title','production_countries', 'genres']]
 genres_titles["genres"]=genres_titles["genres"].apply(repair_array_bound_categories)
 genres_titles = genres_titles.explode('genres').drop_duplicates()
 
