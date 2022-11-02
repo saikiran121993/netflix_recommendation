@@ -88,27 +88,31 @@ if st.button('Show Recommendation'):
     # st.write(recommended_movie_names)
     
     recommendations, names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5)
+    c1, c2, c3 = st.columns(3)
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col1:
-        st.text(names[0])
-        st.image(posters[0])
-        st.text(recommendations.iloc[0]['description'])
-    with col2:
-        st.text(names[1])
-        st.image(posters[1])
-        st.text(recommendations.iloc[1]['description'])
-    with col3:
-        st.text(names[2])
-        st.image(posters[2])
-        st.text(recommendations.iloc[2]['description'])
-    with col4:
-        st.text(names[3])
-        st.image(posters[3])
-        st.text(recommendations.iloc[3]['description'])
-    with col5:
-        st.text(names[4])
-        st.image(posters[4])
-        st.text(recommendations.iloc[4]['description'])
+    with c1:
+        with col1:
+            st.text(names[0])
+            st.image(posters[0])
+            st.text(recommendations.iloc[0]['description'])
+        with col2:
+            st.text(names[1])
+            st.image(posters[1])
+            st.text(recommendations.iloc[1]['description'])
+    with c2:
+        with col3:
+            st.text(names[2])
+            st.image(posters[2])
+            st.text(recommendations.iloc[2]['description'])
+        with col4:
+            st.text(names[3])
+            st.image(posters[3])
+            st.text(recommendations.iloc[3]['description'])
+    with c3:
+        with col5:
+            st.text(names[4])
+            st.image(posters[4])
+            st.text(recommendations.iloc[4]['description'])
     
 st.write('  '
          )
