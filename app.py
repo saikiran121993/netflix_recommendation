@@ -89,6 +89,8 @@ if st.sidebar.button('Show Recommendation'):
     
     col1, col2 = st.columns([1,2])
     with col1:
+        st.write(' ')
+        st.write(' ')
         st.image(posters[0], width=150)
     with col2:
         st.header(names[0])
@@ -100,6 +102,8 @@ if st.sidebar.button('Show Recommendation'):
         
     col1, col2 = st.columns([1,2])
     with col1:
+        st.write(' ')
+        st.write(' ')
         st.image(posters[1], width=150)
     with col2:
         st.header(names[1])
@@ -110,6 +114,8 @@ if st.sidebar.button('Show Recommendation'):
         
     col1, col2 = st.columns([1,2])
     with col1:
+        st.write(' ')
+        st.write(' ')
         st.image(posters[2], width=150)
     with col2:
         st.header(names[2])
@@ -120,6 +126,8 @@ if st.sidebar.button('Show Recommendation'):
     
     col1, col2 = st.columns([1,2])
     with col1:
+        st.write(' ')
+        st.write(' ')
         st.image(posters[3], width=150)
     with col2:
         st.header(names[3])
@@ -130,6 +138,8 @@ if st.sidebar.button('Show Recommendation'):
     
     col1, col2 = st.columns([1,2])
     with col1:
+        st.write(' ')
+        st.write(' ')
         st.image(posters[4], width=150)
     with col2:
         st.header(names[4])
@@ -138,9 +148,7 @@ if st.sidebar.button('Show Recommendation'):
         st.markdown("Release Year: "+ str(recommendations.iloc[4]['release_year']))
         st.markdown("Duration: " + str(recommendations.iloc[4]['runtime']))
     
-st.write('  '
-         )
-st.write(' ')
+
 
 
 # EDA = st.checkbox('Show Netflix Exploratory Data Analysis')
