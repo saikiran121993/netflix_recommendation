@@ -91,38 +91,38 @@ if st.sidebar.button('Show Recommendation'):
     
     col1, col2 = st.columns(2)
     with col1:
-        st.image(posters[0])
+        st.image(posters[0], width=150)
     with col2:
         st.text(names[0])
         st.text(recommendations.iloc[0]['description'])
         
     col1, col2 = st.columns(2)
     with col1:
-        st.image(posters[0])
+        st.image(posters[1], width=150)
     with col2:
-        st.text(names[0])
-        st.text(recommendations.iloc[0]['description'])
+        st.text(names[1])
+        st.text(recommendations.iloc[1]['description'])
         
     col1, col2 = st.columns(2)
     with col1:
-        st.image(posters[0])
+        st.image(posters[2], width=150)
     with col2:
-        st.text(names[0])
-        st.text(recommendations.iloc[0]['description'])
+        st.text(names[2])
+        st.text(recommendations.iloc[2]['description'])
     
     col1, col2 = st.columns(2)
     with col1:
-        st.image(posters[0])
+        st.image(posters[3], width=150)
     with col2:
-        st.text(names[0])
-        st.text(recommendations.iloc[0]['description'])
+        st.text(names[3])
+        st.text(recommendations.iloc[3]['description'])
     
     col1, col2 = st.columns(2)
     with col1:
-        st.image(posters[0])
+        st.image(posters[4], width=150)
     with col2:
-        st.text(names[0])
-        st.text(recommendations.iloc[0]['description'])
+        st.text(names[4])
+        st.text(recommendations.iloc[4]['description'])
     
 st.write('  '
          )
