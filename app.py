@@ -80,11 +80,15 @@ def get_recommendations(title, cosine_sim, top_k=5):
 
 st.header('Netflix Movie Recommendation System ')
 lottie_coding = load_lottiefile("m4.json")
+st.sidebar.image('netflix_logo.png', width=150)
+ 
 c1, c2 = st.columns([1,3])
 with c1:
-    st.write(" ")
-    st.write(" ")
-    st.sidebar.image('netflix_logo.png', width=180)
+   st.write("")
+   st.write("")
+   st.image('Netflix-Logo-2.png', width=150)
+
+
 
 with c2:
     st_lottie(
