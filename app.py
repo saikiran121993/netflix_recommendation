@@ -86,7 +86,7 @@ if st.button('Show Recommendation'):
    # st.write(recommended_movie_names[['title', 'description']])
     # st.write(recommended_movie_names)
     
-    names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=10)
+    names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5)
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.text(names[0])
