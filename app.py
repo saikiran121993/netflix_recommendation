@@ -11,11 +11,11 @@ import ast
 import movieposters as mp
 
 
-def fetch_poster(movie_id):
-    response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=020b311fe0559698373a16008dc6a672&language=en-US'.format(movie_id))
-    data = response.json()
-    print(data)
-    return "https://image.tmdb.org/t/p/w500/" + data['poster_path']
+# def fetch_poster(movie_id):
+#     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=020b311fe0559698373a16008dc6a672&language=en-US'.format(movie_id))
+#     data = response.json()
+#     print(data)
+#     return "https://image.tmdb.org/t/p/w500/" + data['poster_path']
 
 
 
@@ -80,13 +80,19 @@ def get_recommendations(title, cosine_sim, top_k=5):
 
 st.header('Netflix Movie Recommendation System ')
 lottie_coding = load_lottiefile("m4.json")
-st_lottie(
-    lottie_coding,
-    speed=1,
-    reverse=False,
-    loop=True,
-    quality="low",height=220
-)
+c1, c2 = st.columns([1,3])
+with c1:
+    st.image('netflix_logo.png', width=150)
+
+with c2:
+    st_lottie(
+        lottie_coding,
+        speed=1,
+        reverse=False,
+        loop=True,
+        quality="low",height=220
+    )
+
 
 
 selected_genres = st.sidebar.multiselect(
