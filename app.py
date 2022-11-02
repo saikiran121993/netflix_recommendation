@@ -55,7 +55,7 @@ def get_recommendations(title, cosine_sim, top_k=5):
         except:
             recommended_movies_posters.append('Netflix_Symbol_logo.webp')
             continue
-    return recommended_movies, recommended_movies_posters
+    return recommendations.reset_index(drop=True) , recommended_movies, recommended_movies_posters
 
 
 
@@ -87,23 +87,28 @@ if st.button('Show Recommendation'):
    # st.write(recommended_movie_names[['title', 'description']])
     # st.write(recommended_movie_names)
     
-    names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5)
+    recommendations, names, posters = get_recommendations(selected_movie, cosine_sim=cosine_sim, top_k=5)
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.text(names[0])
         st.image(posters[0])
+        st.text(recommendations.iloc[0]['description'])
     with col2:
         st.text(names[1])
         st.image(posters[1])
+        st.text(recommendations.iloc[1]['description'])
     with col3:
         st.text(names[2])
         st.image(posters[2])
+        st.text(recommendations.iloc[2]['description'])
     with col4:
         st.text(names[3])
         st.image(posters[3])
+        st.text(recommendations.iloc[3]['description'])
     with col5:
         st.text(names[4])
         st.image(posters[4])
+        st.text(recommendations.iloc[4]['description'])
     
 st.write('  '
          )
