@@ -82,7 +82,9 @@ st.header('Netflix Movie Recommendation System ')
 lottie_coding = load_lottiefile("m4.json")
 c1, c2 = st.columns([1,3])
 with c1:
-    st.image('netflix_logo.png', width=220)
+    st.write(" ")
+    st.write(" ")
+    st.image('netflix_logo.png', width=180)
 
 with c2:
     st_lottie(
