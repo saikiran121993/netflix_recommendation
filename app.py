@@ -78,7 +78,7 @@ def get_recommendations(title, cosine_sim, top_k=5):
 ##################################################################
 
 
-st.header('Netflix Movie Recommendation System ')
+st.header('Netflix content-based recommendation system using the genres and/or descriptions')
 lottie_coding = load_lottiefile("m4.json")
  
 c1, c2 = st.columns([1,3])
@@ -105,6 +105,21 @@ selected_genres = st.sidebar.multiselect(
      'european', 'war', 'animation', 'documentation', 'history', 'scifi', 'sport', 'reality', None]
 )
 
+production_countries = st.sidebar.multiselect(
+    "Select countries from the dropdown",
+    ['US', 'GB', 'JP', 'EG', 'DE', 'IN', 'DZ', 'LB', 'FR', 'CA', 'SU',
+       'IT', 'HK', 'AR', 'KW', 'PE', 'BR', 'IE', 'GH', 'BF', 'ES', 'MX',
+       'BE', 'NO', 'PS', 'TR', nan, 'BS', 'CZ', 'AU', 'IS', 'NZ', 'CN',
+       'BG', 'MA', 'UY', 'TW', 'DK', 'KR', 'MY', 'CH', 'CL', 'NG', 'ZA',
+       'SA', 'AT', 'NL', 'SE', 'PH', 'Lebanon', 'TH', 'XX', 'AE', 'HU',
+       'ID', 'RO', 'CD', 'VE', 'IL', 'UA', 'SG', 'IR', 'JO', 'QA', 'LU',
+       'FI', 'SK', 'SY', 'GL', 'PT', 'PK', 'VN', 'PR', 'IQ', 'KH', 'GE',
+       'CU', 'PL', 'KE', 'VA', 'RU', 'RS', 'AL', 'TZ', 'TN', 'ZW', 'PY',
+       'CO', 'NP', 'GR', 'CM', 'BD', 'KG', 'LT', 'CY', 'SN', 'MW', 'MU',
+       'LK', 'AO', 'GT', 'MZ', 'AF', 'NA', 'FO']
+)
+
+
 
 indices = pd.Series(df.index, index=df["title"])
 
@@ -113,7 +128,8 @@ genres_titles["genres"]=genres_titles["genres"].apply(repair_array_bound_categor
 genres_titles = genres_titles.explode('genres').drop_duplicates()
 
 
-movie_list = genres_titles[genres_titles.genres.isin(selected_genres)]['title'].unique()
+movie_list = genres_titles[(genres_titles.genres.isin(selected_genres)) & \
+    (genres_titles.production_countries.isin(production_countries))]['title'].unique()
 
 selected_movie = st.sidebar.selectbox(
     "Type or select a movie from the dropdown",
