@@ -11,14 +11,6 @@ import ast
 import movieposters as mp
 
 
-# def fetch_poster(movie_id):
-#     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=020b311fe0559698373a16008dc6a672&language=en-US'.format(movie_id))
-#     data = response.json()
-#     print(data)
-#     return "https://image.tmdb.org/t/p/w500/" + data['poster_path']
-
-
-
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
@@ -79,7 +71,7 @@ def get_recommendations(title, cosine_sim, top_k=5, years=range(1980, 2022)):
 ##################################################################
 
 
-st.header('Netflix content-based recommendation system using the genres and/or descriptions')
+st.subheader('Netflix content-based recommendation system using the genres and/or descriptions')
 lottie_coding = load_lottiefile("m4.json")
  
 c1, c2 = st.columns([1,3])
