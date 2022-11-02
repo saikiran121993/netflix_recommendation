@@ -81,7 +81,7 @@ def get_recommendations(title, cosine_sim, top_k=5):
 st.header('Netflix Movie Recommendation System ')
 lottie_coding = load_lottiefile("m4.json")
  
-c1, c2 = st.columns([1,3])
+c1, c2 = st.columns([1,5])
 with c1:
    st.write("")
    st.write("")
