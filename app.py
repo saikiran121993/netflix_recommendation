@@ -93,9 +93,9 @@ if st.sidebar.button('Show Recommendation'):
     with col2:
         st.header(names[0])
         st.markdown(recommendations.iloc[0]['description'])
-        st.caption("IMDB rating: ",recommendations.iloc[0]['description'])
-        st.caption("Release Year: ",recommendations.iloc[0]['release_year'])
-        st.caption("Duration: ",recommendations.iloc[0]['runtime'])
+        st.markdown("IMDB rating: ",recommendations.iloc[0]['description'])
+        st.markdown("Release Year: ",recommendations.iloc[0]['release_year'])
+        st.markdown("Duration: ",recommendations.iloc[0]['runtime'])
 
         
     col1, col2 = st.columns([1,2])
